@@ -1,0 +1,25 @@
+name: CI Build Image
+
+on:
+  push:
+    branches: [ "main" ] # Chạy khi bạn push code lên nhánh main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.masterhuthiu@gmail.com }} # Tài khoản Docker của bạn
+          password: ${{ secrets.123456a@A }}    # Token/Mật khẩu Docker
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context: ./my-app
+          push: true
+          tags: user_cua_ban/my-custom-app:latest
