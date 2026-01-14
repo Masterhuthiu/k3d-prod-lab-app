@@ -14,7 +14,6 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          # Chỉ dùng TÊN BIẾN đã tạo ở bước 1, không viết email/mật khẩu vào đây
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
