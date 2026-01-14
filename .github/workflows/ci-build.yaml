@@ -14,14 +14,13 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          # Đây là TÊN BIẾN bạn sẽ đặt trong phần Settings của GitHub
-          username: ${{ secrets.masterhuthiu }}
-          password: ${{ secrets.123456a@A }}
+          # Chỉ dùng TÊN BIẾN đã tạo ở bước 1, không viết email/mật khẩu vào đây
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          # Thay 'masterhuthiu' bằng ID Docker Hub của bạn
           tags: masterhuthiu/my-custom-app:latest
